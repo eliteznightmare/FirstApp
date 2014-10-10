@@ -160,7 +160,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/EditText01"
+        android:id="@+id/InputTimeX"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/InputAccX"
@@ -172,9 +172,56 @@
         android:id="@+id/TextTimeX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/EditText01"
+        android:layout_alignBottom="@+id/InputTimeX"
         android:layout_alignLeft="@+id/TextAccX"
         android:text="Time"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/InputTimeX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="Calculate" />
+
+    <EditText
+        android:id="@+id/InputDY"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputTimeY"
+        android:layout_below="@+id/InputTimeY"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextDistanceY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/InputDY"
+        android:layout_alignBottom="@+id/InputDY"
+        android:layout_alignLeft="@+id/TextTimeY"
+        android:text="Distance"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/InputDX"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputTimeX"
+        android:layout_below="@+id/InputTimeX"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextDistanceX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/InputDX"
+        android:layout_alignBottom="@+id/InputDX"
+        android:layout_alignLeft="@+id/TextTimeX"
+        android:text="Distance"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

@@ -1091,16 +1091,21 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020059;
     }
     public static final class id {
-        public static final int EditText01=0x7f05004f;
+        public static final int Calculate=0x7f050051;
         public static final int InputAccX=0x7f05004d;
         public static final int InputAccY=0x7f050043;
+        public static final int InputDX=0x7f050054;
+        public static final int InputDY=0x7f050052;
         public static final int InputFinalVelX=0x7f05004b;
         public static final int InputFinalVelY=0x7f050041;
         public static final int InputInitVelX=0x7f05004a;
         public static final int InputInitVelY=0x7f050042;
+        public static final int InputTimeX=0x7f05004f;
         public static final int InputTimeY=0x7f050044;
         public static final int TextAcc=0x7f050046;
         public static final int TextAccX=0x7f05004e;
+        public static final int TextDistanceX=0x7f050055;
+        public static final int TextDistanceY=0x7f050053;
         public static final int TextFinalVelX=0x7f05004c;
         public static final int TextFinalVelY=0x7f050045;
         public static final int TextInitVelX=0x7f050049;
@@ -1117,11 +1122,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_example=0x7f050052;
+        public static final int action_example=0x7f050057;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050051;
+        public static final int action_settings=0x7f050056;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
