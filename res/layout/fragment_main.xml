@@ -1,0 +1,180 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity$PlaceholderFragment" >
+
+    <TextView
+        android:id="@+id/TextInitVelY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Title1"
+        android:layout_below="@+id/Title1"
+        android:layout_marginTop="19dp"
+        android:text="Initial Velocity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/Title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Y"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/InputFinalVelY"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputInitVelY"
+        android:layout_below="@+id/InputInitVelY"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/InputAccY"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputTimeY"
+        android:layout_below="@+id/InputFinalVelY"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="-9.8" />
+
+    <TextView
+        android:id="@+id/TextFinalVelY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/InputFinalVelY"
+        android:layout_alignLeft="@+id/TextInitVelY"
+        android:text="Final Velocity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/TextAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/InputAccY"
+        android:layout_alignLeft="@+id/TextFinalVelY"
+        android:text="Acceleration"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/InputInitVelY"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TextInitVelY"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/TextInitVelY"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <EditText
+        android:id="@+id/InputTimeY"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputFinalVelY"
+        android:layout_below="@+id/InputAccY"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextTimeY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/InputTimeY"
+        android:layout_alignLeft="@+id/TextAcc"
+        android:text="Time"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/Title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextTimeY"
+        android:layout_centerVertical="true"
+        android:text="X"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/TextInitVelX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Title2"
+        android:layout_below="@+id/Title2"
+        android:layout_marginTop="16dp"
+        android:text="Initial Velocity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/InputInitVelX"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TextInitVelX"
+        android:layout_alignLeft="@+id/InputTimeY"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <EditText
+        android:id="@+id/InputFinalVelX"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputInitVelX"
+        android:layout_below="@+id/InputInitVelX"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextFinalVelX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/InputFinalVelX"
+        android:layout_alignLeft="@+id/TextInitVelX"
+        android:text="Final Velocity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/InputAccX"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputFinalVelX"
+        android:layout_below="@+id/InputFinalVelX"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextAccX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/InputAccX"
+        android:layout_alignLeft="@+id/TextFinalVelX"
+        android:text="Acceleration"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/InputAccX"
+        android:layout_below="@+id/InputAccX"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextTimeX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/EditText01"
+        android:layout_alignLeft="@+id/TextAccX"
+        android:text="Time"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
