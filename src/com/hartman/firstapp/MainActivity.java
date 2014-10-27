@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.support.v4.widget.DrawerLayout;
 
 public class MainActivity extends ActionBarActivity implements
@@ -34,50 +36,6 @@ public class MainActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		final Button button = (Button) findViewById(R.id.Calculate);
-		button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				EditText V0x = (EditText) findViewById(R.id.InputInitVelX);
-				EditText V0y = (EditText) findViewById(R.id.InputInitVelY);
-				EditText Ax = (EditText) findViewById(R.id.InputAccX);
-				EditText Ay = (EditText) findViewById(R.id.InputAccY);
-				EditText Vfx = (EditText) findViewById(R.id.InputFinalVelX);
-				EditText Vfy = (EditText) findViewById(R.id.InputFinalVelY);
-				EditText Tx = (EditText) findViewById(R.id.InputTimeX);
-				EditText Ty = (EditText) findViewById(R.id.InputTimeY);
-				EditText Dx = (EditText) findViewById(R.id.InputDX);
-				EditText Dy = (EditText) findViewById(R.id.InputDY);
-				double V0xD = Double.valueOf(V0x.getText().toString());
-				double V0yD = Double.valueOf(V0y.getText().toString());
-				double AxD = Double.valueOf(Ax.getText().toString());
-				double AyD = Double.valueOf(Ay.getText().toString());
-				double VfxD = Double.valueOf(Vfx.getText().toString());
-				double VfyD = Double.valueOf(Vfy.getText().toString());
-				double TxD = Double.valueOf(Tx.getText().toString());
-				double TyD = Double.valueOf(Ty.getText().toString());
-				double DxD = Double.valueOf(Dx.getText().toString());
-				double DyD = Double.valueOf(Dy.getText().toString());
-				if (Ty.getText().toString() == null){
-					if ()
-				}
-					if (Tx.getText() != null && Ty.getText() == null
-							|| Tx.getText() == null && Ty.getText() != null) {
-						TxD = TyD;
-						String TxS = String.valueOf(TxD);
-						String TyS = String.valueOf(TyD);
-						Tx.setText(TxS);
-						Ty.setText(TyS);
-					}
-				if (V0y.getText().toString() != null
-						&& Ay.getText().toString() != null
-						&& Ty.getText().toString() != null
-						&& Dy.getText().toString() == null) {
-					DyD = V0yD * TyD + (0.5 * AyD) * Math.pow(TyD, 2);
-					String DyS = String.valueOf(DyD);
-					Dy.setText(DyS);
-				}
-			}
-		});
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -133,14 +91,14 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		// Handle presses on the action bar items
+		switch (item.getItemId()) {
+		case R.id.action_search:
+			Calculate();
 			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -183,4 +141,72 @@ public class MainActivity extends ActionBarActivity implements
 		}
 	}
 
+	public void Calculate() {
+		EditText V0x = (EditText) findViewById(R.id.InputInitVelX);
+		EditText V0y = (EditText) findViewById(R.id.InputInitVelY);
+		EditText Ax = (EditText) findViewById(R.id.InputAccX);
+		EditText Ay = (EditText) findViewById(R.id.InputAccY);
+		EditText Vfx = (EditText) findViewById(R.id.InputFinalVelX);
+		EditText Vfy = (EditText) findViewById(R.id.InputFinalVelY);
+		EditText Tx = (EditText) findViewById(R.id.InputTimeX);
+		EditText Ty = (EditText) findViewById(R.id.InputTimeY);
+		EditText Dx = (EditText) findViewById(R.id.InputDX);
+		EditText Dy = (EditText) findViewById(R.id.InputDY);
+		Double V0xD = Double.valueOf(V0x.getText().toString());
+		Double V0yD = Double.valueOf(V0y.getText().toString());
+		Double AxD = Double.valueOf(Ax.getText().toString());
+		Double AyD = Double.valueOf(Ay.getText().toString());
+		Double VfxD = Double.valueOf(Vfx.getText().toString());
+		Double VfyD = Double.valueOf(Vfy.getText().toString());
+		Double TxD = Double.valueOf(Tx.getText().toString());
+		Double TyD = Double.valueOf(Ty.getText().toString());
+		Double DxD = Double.valueOf(Dx.getText().toString());
+		Double DyD = Double.valueOf(Dy.getText().toString());
+
+		if (TxD != -0 && TyD == -0) {
+			TyD = TxD;
+			String TxS = String.valueOf(TxD);
+			String TyS = String.valueOf(TyD);
+			Tx.setText(TxS);
+			Ty.setText(TyS);
+		}
+		if (TyD != 0 && TxD == -0) {
+			TxD = TyD;
+			String TxS = String.valueOf(TxD);
+			String TyS = String.valueOf(TyD);
+			Tx.setText(TxS);
+			Ty.setText(TyS);
+		}
+		if (TyD == -0) {
+			if (AyD != -0 && V0yD != -0 && VfyD != -0) {
+				TyD = (VfyD - V0yD)/AyD;
+			}
+			if (AyD != -0 && V0yD != -0 && DyD != -0){
+				Double TyD2 = Math.sqrt((DyD/V0yD)/ 0.5* AyD);
+				TyD = Math.sqrt(TyD2)+ TyD2;
+				String TyS2 = String.valueOf(TyD);
+				Ty.setText(TyS2);
+			}
+		}
+		if (V0yD == -0){
+			if (AyD != -0 && TyD != -0 && VfyD != -0){
+				V0yD = -(AyD * TyD)+VfyD;
+				String V0yS = String.valueOf(V0yD);
+				
+			}
+			if (AyD != -0 && VfyD != -0 && DyD != -0){
+				V0yD = Math.sqrt(-(2* AyD * DyD) + VfyD);
+			}
+			if (AyD != -0 && DyD != -0 && TyD != -0){
+				V0yD = (-(0.5*AyD* Math.pow(TyD, 2)) + DyD)/TyD;
+			}
+		}
+		if (DyD == -0) {
+			if (V0yD != -0 && AyD != -0 && TyD != -0) {
+				DyD = V0yD * TyD + (0.5 * AyD) * Math.pow(TyD, 2);
+				String DyS = String.valueOf(DyD);
+				Dy.setText(DyS);
+			}
+		}
+	}
 }
